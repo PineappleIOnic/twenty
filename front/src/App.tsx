@@ -3,6 +3,7 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { RecordShowPage } from '@/object-record/components/RecordShowPage';
 import { RecordTablePage } from '@/object-record/components/RecordTablePage';
 import { AppPath } from '@/types/AppPath';
+import { AutomationsPath } from '@/types/AutomationsPath';
 import { SettingsPath } from '@/types/SettingsPath';
 import { DefaultLayout } from '@/ui/layout/page/DefaultLayout';
 import { PageTitle } from '@/ui/utilities/page-title/PageTitle';
@@ -29,6 +30,7 @@ import { SettingsWorkspaceMembers } from '~/pages/settings/SettingsWorkspaceMemb
 import { Tasks } from '~/pages/tasks/Tasks';
 import { getPageTitleFromPath } from '~/utils/title-utils';
 
+import { Automations } from './pages/automations/Automations';
 import { SettingsObjectFieldEdit } from './pages/settings/data-model/SettingsObjectFieldEdit';
 import { SettingsObjectNewFieldStep1 } from './pages/settings/data-model/SettingsObjectNewField/SettingsObjectNewFieldStep1';
 import { SettingsObjectNewFieldStep2 } from './pages/settings/data-model/SettingsObjectNewField/SettingsObjectNewFieldStep2';
@@ -127,6 +129,20 @@ export const App = () => {
               </Routes>
             }
           />
+
+          <Route
+            path={AppPath.AutomationsCatchAll}
+            element={
+              <Routes>
+                <Route path="/" element={<Navigate to="/automations/list" />} />
+                <Route
+                  path={AutomationsPath.ListAutomations}
+                  element={<Automations />}
+                />
+              </Routes>
+            }
+          />
+
           <Route path={AppPath.NotFoundWildcard} element={<NotFound />} />
         </Routes>
       </DefaultLayout>

@@ -8,6 +8,7 @@ import { SettingsNavbar } from '@/settings/components/SettingsNavbar';
 import {
   IconBell,
   IconCheckbox,
+  IconFunction,
   IconSearch,
   IconSettings,
   IconTargetArrow,
@@ -53,6 +54,12 @@ export const AppNavbar = () => {
             active={currentPath === '/tasks'}
             Icon={IconCheckbox}
             count={currentUserDueTaskCount}
+          />
+          <NavItem
+            label="Automations"
+            to="/automations"
+            active={currentPath.startsWith('/automations')}
+            Icon={IconFunction}
           />
           <Favorites />
           <NavTitle label="Workspace" />

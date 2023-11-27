@@ -19,6 +19,7 @@ export enum AppPath {
 
   SettingsCatchAll = `/settings/*`,
   DevelopersCatchAll = `/developers/*`,
+  AutomationsCatchAll = `/automations/*`,
 
   // Impersonate
   Impersonate = '/impersonate/:userId',

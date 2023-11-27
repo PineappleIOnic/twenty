@@ -42,6 +42,7 @@ export {
   IconFileImport,
   IconFileUpload,
   IconForbid,
+  IconFunction,
   IconGripVertical,
   IconHeart,
   IconHeartOff,
