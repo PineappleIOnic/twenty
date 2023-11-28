@@ -1,4 +1,3 @@
-import { isNonEmptyString } from '@sniptt/guards';
 import { useRecoilState, useRecoilValue } from 'recoil';
 
 import { currentWorkspaceMemberState } from '@/auth/states/currentWorkspaceMemberState';
@@ -36,22 +35,15 @@ export const useOpenCreateAutomationDrawer = () => {
   return async ({
     type,
     targetableEntities,
-    assigneeId,
   }: {
     type: AutomationType;
     targetableEntities?: AutomationTargetableEntity[];
-    assigneeId?: string;
   }) => {
     const targetableEntitiesWithRelations = targetableEntities
       ? getTargetableEntitiesWithParents(targetableEntities)
       : [];
 
     const createdAutomation = await createOneAutomation?.({
-      authorId: currentWorkspaceMember?.id,
-      assigneeId:
-        assigneeId ?? isNonEmptyString(currentWorkspaceMember?.id)
-          ? currentWorkspaceMember?.id
-          : undefined,
       type: type,
     });
 

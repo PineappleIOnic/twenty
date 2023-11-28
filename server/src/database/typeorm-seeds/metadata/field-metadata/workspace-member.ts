@@ -23,6 +23,7 @@ export enum SeedWorkspaceMemberFieldMetadataIds {
   Settings = '20202020-50ed-46ed-8198-65e237b83eb9',
   AccountOwnerForCompanies = '20202020-41bb-4c17-8979-40fa915df9e1',
   AuthoredComments = '20202020-7238-4e2a-9ccf-d2c8f604933a',
+  AuthoredAutomations = '20202020-aa81-46d6-bd7e-20e06caa8e59',
 }
 
 export const seedWorkspaceMemberFieldMetadata = async (
@@ -291,6 +292,22 @@ export const seedWorkspaceMemberFieldMetadata = async (
         targetColumnMap: {},
         description: 'Authored comments',
         icon: 'IconComment',
+        isNullable: true,
+        isSystem: false,
+        defaultValue: undefined,
+      },
+      {
+        id: SeedWorkspaceMemberFieldMetadataIds.AuthoredAutomations,
+        objectMetadataId: SeedObjectMetadataIds.WorkspaceMember,
+        isCustom: false,
+        workspaceId: SeedWorkspaceId,
+        isActive: true,
+        type: FieldMetadataType.RELATION,
+        name: 'authoredAutomations',
+        label: 'Authored automations',
+        targetColumnMap: {},
+        description: 'Authored automations',
+        icon: 'IconFunction',
         isNullable: true,
         isSystem: false,
         defaultValue: undefined,

@@ -68,6 +68,14 @@ export const seedPersonRelationMetadata = async (
         toFieldMetadataId: SeedActivityTargetFieldMetadataIds.Person,
         workspaceId: SeedWorkspaceId,
       },
+      {
+        relationType: RelationMetadataType.ONE_TO_MANY,
+        fromObjectMetadataId: SeedObjectMetadataIds.Person,
+        toObjectMetadataId: SeedObjectMetadataIds.AutomationTarget,
+        fromFieldMetadataId: SeedPersonFieldMetadataIds.AutomationTargets,
+        toFieldMetadataId: SeedActivityTargetFieldMetadataIds.Person,
+        workspaceId: SeedWorkspaceId,
+      },
     ])
     .execute();
 };

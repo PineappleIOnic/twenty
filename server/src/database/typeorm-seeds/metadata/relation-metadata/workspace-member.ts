@@ -9,6 +9,7 @@ import { SeedActivityFieldMetadataIds } from 'src/database/typeorm-seeds/metadat
 import { SeedCommentFieldMetadataIds } from 'src/database/typeorm-seeds/metadata/field-metadata/comment';
 import { SeedAttachmentFieldMetadataIds } from 'src/database/typeorm-seeds/metadata/field-metadata/attachment';
 import { SeedWorkspaceId } from 'src/database/typeorm-seeds/core/workspaces';
+import { SeedAutomationFieldMetadataIds } from 'src/database/typeorm-seeds/metadata/field-metadata/automation';
 
 const tableName = 'relationMetadata';
 
@@ -80,6 +81,15 @@ export const seedWorkspaceMemberRelationMetadata = async (
         fromFieldMetadataId:
           SeedWorkspaceMemberFieldMetadataIds.AuthoredAttachments,
         toFieldMetadataId: SeedAttachmentFieldMetadataIds.Author,
+        workspaceId: SeedWorkspaceId,
+      },
+      {
+        relationType: RelationMetadataType.ONE_TO_MANY,
+        fromObjectMetadataId: SeedObjectMetadataIds.WorkspaceMember,
+        toObjectMetadataId: SeedObjectMetadataIds.Automation,
+        fromFieldMetadataId:
+          SeedWorkspaceMemberFieldMetadataIds.AuthoredAutomations,
+        toFieldMetadataId: SeedAutomationFieldMetadataIds.Author,
         workspaceId: SeedWorkspaceId,
       },
     ])

@@ -150,6 +150,17 @@ const workspaceMemberMetadata = {
       icon: 'IconComment',
       isNullable: true,
     },
+    {
+      isCustom: false,
+      isActive: true,
+      type: FieldMetadataType.RELATION,
+      name: 'authoredAutomations',
+      label: 'Authored automations',
+      targetColumnMap: {},
+      description: 'Authored automations',
+      icon: 'IconComment',
+      isNullable: true,
+    },
   ],
 };
 

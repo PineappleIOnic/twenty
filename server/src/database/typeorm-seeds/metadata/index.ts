@@ -22,7 +22,10 @@ import { seedActivityRelationMetadata } from 'src/database/typeorm-seeds/metadat
 import { seedPipelineStepRelationMetadata } from 'src/database/typeorm-seeds/metadata/relation-metadata/pipeline-step';
 import { seedPersonRelationMetadata } from 'src/database/typeorm-seeds/metadata/relation-metadata/person';
 import { seedWorkspaceMemberRelationMetadata } from 'src/database/typeorm-seeds/metadata/relation-metadata/workspace-member';
+import { seedAutomationFieldMetadata } from 'src/database/typeorm-seeds/metadata/field-metadata/automation';
+import { seedAutomationTargetFieldMetadata } from 'src/database/typeorm-seeds/metadata/field-metadata/automation-target';
 import { seedDataSource } from 'src/database/typeorm-seeds/metadata/data-source';
+import { seedAutomationRelationMetadata } from 'src/database/typeorm-seeds/metadata/relation-metadata/automation';
 
 export const seedMetadataSchema = async (workspaceDataSource: DataSource) => {
   const schemaName = 'metadata';
@@ -52,4 +55,8 @@ export const seedMetadataSchema = async (workspaceDataSource: DataSource) => {
   await seedPipelineStepRelationMetadata(workspaceDataSource, schemaName);
   await seedViewRelationMetadata(workspaceDataSource, schemaName);
   await seedWorkspaceMemberRelationMetadata(workspaceDataSource, schemaName);
+
+  await seedAutomationFieldMetadata(workspaceDataSource, schemaName);
+  await seedAutomationTargetFieldMetadata(workspaceDataSource, schemaName);
+  await seedAutomationRelationMetadata(workspaceDataSource, schemaName);
 };
