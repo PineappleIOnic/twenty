@@ -28,6 +28,8 @@ export enum SeedCompanyFieldMetadataIds {
   Opportunities = '20202020-e3fc-46ff-b552-3e757843f06e',
   Favorites = '20202020-e7c8-4771-8cc4-ce0e8c36a3c0',
   Attachments = '20202020-61af-4ffd-b79b-baed6db8ad11',
+
+  AutomationTargets = '20202020-2375-452e-be2b-047b592a045d',
 }
 
 export const seedCompanyFieldMetadata = async (
@@ -373,6 +375,22 @@ export const seedCompanyFieldMetadata = async (
         targetColumnMap: {},
         description: 'Attachments linked to the company.',
         icon: 'IconFileImport',
+        isNullable: true,
+        isSystem: false,
+        defaultValue: undefined,
+      },
+      {
+        id: SeedCompanyFieldMetadataIds.AutomationTargets,
+        objectMetadataId: SeedObjectMetadataIds.Company,
+        isCustom: false,
+        workspaceId: SeedWorkspaceId,
+        isActive: true,
+        type: FieldMetadataType.RELATION,
+        name: 'automationTargets',
+        label: 'Automations',
+        targetColumnMap: {},
+        description: 'Automations linked to the company.',
+        icon: 'IconTargetArrow',
         isNullable: true,
         isSystem: false,
         defaultValue: undefined,

@@ -9,6 +9,7 @@ import { SeedAttachmentFieldMetadataIds } from 'src/database/typeorm-seeds/metad
 import { SeedOpportunityFieldMetadataIds } from 'src/database/typeorm-seeds/metadata/field-metadata/opportunity';
 import { SeedActivityTargetFieldMetadataIds } from 'src/database/typeorm-seeds/metadata/field-metadata/activity-target';
 import { SeedWorkspaceId } from 'src/database/typeorm-seeds/core/workspaces';
+import { SeedAutomationTargetFieldMetadataIds } from 'src/database/typeorm-seeds/metadata/field-metadata/automation-target';
 
 const tableName = 'relationMetadata';
 
@@ -67,6 +68,14 @@ export const seedCompanyRelationMetadata = async (
         toObjectMetadataId: SeedObjectMetadataIds.ActivityTarget,
         fromFieldMetadataId: SeedCompanyFieldMetadataIds.ActivityTargets,
         toFieldMetadataId: SeedActivityTargetFieldMetadataIds.Company,
+        workspaceId: SeedWorkspaceId,
+      },
+      {
+        relationType: RelationMetadataType.ONE_TO_MANY,
+        fromObjectMetadataId: SeedObjectMetadataIds.Person,
+        toObjectMetadataId: SeedObjectMetadataIds.AutomationTarget,
+        fromFieldMetadataId: SeedCompanyFieldMetadataIds.AutomationTargets,
+        toFieldMetadataId: SeedAutomationTargetFieldMetadataIds.Company,
         workspaceId: SeedWorkspaceId,
       },
     ])

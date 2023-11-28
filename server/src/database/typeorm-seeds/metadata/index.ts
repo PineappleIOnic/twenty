@@ -48,15 +48,15 @@ export const seedMetadataSchema = async (workspaceDataSource: DataSource) => {
   await seedViewSortFieldMetadata(workspaceDataSource, schemaName);
   await seedViewRelationMetadata(workspaceDataSource, schemaName);
   await seedWorkspaceMemberFieldMetadata(workspaceDataSource, schemaName);
+  await seedAutomationFieldMetadata(workspaceDataSource, schemaName);
+  await seedAutomationTargetFieldMetadata(workspaceDataSource, schemaName);
 
   await seedActivityRelationMetadata(workspaceDataSource, schemaName);
   await seedCompanyRelationMetadata(workspaceDataSource, schemaName);
   await seedPersonRelationMetadata(workspaceDataSource, schemaName);
   await seedPipelineStepRelationMetadata(workspaceDataSource, schemaName);
   await seedViewRelationMetadata(workspaceDataSource, schemaName);
-  await seedWorkspaceMemberRelationMetadata(workspaceDataSource, schemaName);
-
-  await seedAutomationFieldMetadata(workspaceDataSource, schemaName);
-  await seedAutomationTargetFieldMetadata(workspaceDataSource, schemaName);
   await seedAutomationRelationMetadata(workspaceDataSource, schemaName);
+
+  await seedWorkspaceMemberRelationMetadata(workspaceDataSource, schemaName);
 };
